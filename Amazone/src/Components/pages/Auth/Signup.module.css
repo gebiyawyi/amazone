@@ -1,0 +1,442 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding: 20px;
+  background: white;
+}
+
+.signinBox {
+  width: 100%;
+  max-width: 380px;
+  padding-top: 20px;
+}
+
+.logoContainer {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.logoLink {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.logo {
+  width: 120px;
+  height: auto;
+  object-fit: contain;
+  transition: transform 0.2s ease;
+}
+
+.logo:hover {
+  transform: scale(1.02);
+}
+
+.formContainer {
+  background: white;
+  border: 1px solid #e7e7e7;
+  border-radius: 8px;
+  padding: 25px 30px;
+}
+
+.formContainer h1 {
+  font-size: 28px;
+  font-weight: 400;
+  color: #0f1111;
+  margin: 0 0 15px 0;
+}
+
+.success {
+  background: #d4edda;
+  color: #155724;
+  padding: 10px 14px;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  font-size: 14px;
+  border: 1px solid #c3e6cb;
+  animation: fadeIn 0.5s ease;
+}
+
+.error {
+  background: #f8d7da;
+  color: #721c24;
+  padding: 10px 14px;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  font-size: 13px;
+  border: 1px solid #f5c6cb;
+  animation: fadeIn 0.5s ease;
+}
+
+.formGroup {
+  margin-bottom: 16px;
+}
+
+.formGroup label {
+  display: block;
+  font-weight: 700;
+  font-size: 13px;
+  color: #0f1111;
+  margin-bottom: 4px;
+}
+
+.formGroup input {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #d5d9d9;
+  border-radius: 4px;
+  font-size: 14px;
+  box-sizing: border-box;
+  transition: all 0.2s;
+  height: 36px;
+}
+
+.formGroup input:focus {
+  outline: none;
+  border-color: #ff9900;
+  box-shadow: 0 0 3px 2px rgba(255, 153, 0, 0.3);
+}
+
+.formGroup input::placeholder {
+  color: #999;
+}
+
+.passwordWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.passwordWrapper input {
+  flex: 1;
+  padding-right: 45px !important;
+  width: 100%;
+}
+
+.showPasswordBtn {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px 6px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+  transition: all 0.2s ease;
+}
+
+.showPasswordBtn:hover {
+  background: #f0f0f0;
+  color: #0f1111;
+}
+
+.showPasswordBtn svg {
+  display: block;
+}
+
+.match {
+  color: #28a745;
+  font-size: 12px;
+  display: block;
+  margin-top: 4px;
+  animation: fadeIn 0.3s ease;
+}
+
+.noMatch {
+  color: #dc3545;
+  font-size: 12px;
+  display: block;
+  margin-top: 4px;
+  animation: fadeIn 0.3s ease;
+}
+
+.submitBtn {
+  width: 100%;
+  padding: 8px 12px;
+  background: #f0c14b;
+  border: 1px solid #a88734;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  color: #0f1111;
+  height: 36px;
+}
+
+.submitBtn:hover {
+  background: #f3b93e;
+  border-color: #8a7a2a;
+}
+
+.submitBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.agreement {
+  font-size: 12px;
+  color: #565959;
+  line-height: 1.5;
+  margin: 18px 0 10px 0;
+}
+
+.agreement strong {
+  color: #0f1111;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  margin: 25px 0 20px 0;
+}
+
+.divider::before {
+  content: '';
+  flex: 1;
+  border-top: 1px solid #e7e7e7;
+  margin-right: 10px;
+}
+
+.divider::after {
+  content: '';
+  flex: 1;
+  border-top: 1px solid #e7e7e7;
+  margin-left: 10px;
+}
+
+.divider span {
+  color: #565959;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.createAccountBtn {
+  width: 100%;
+  padding: 8px 12px;
+  background: #fff;
+  border: 1px solid #d5d9d9;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  color: #0f1111;
+  height: 36px;
+}
+
+.createAccountBtn:hover {
+  background: #f0f0f0;
+  border-color: #a88734;
+}
+
+.switchText {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+  color: #565959;
+}
+
+.switchLink {
+  background: none;
+  border: none;
+  color: #0066c0;
+  font-weight: 500;
+  cursor: pointer;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.switchLink:hover {
+  color: #c45500;
+  text-decoration: underline;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 1024px) {
+  .signinBox {
+    max-width: 360px;
+  }
+  .formContainer {
+    padding: 22px 25px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 15px;
+  }
+  .signinBox {
+    max-width: 340px;
+    padding-top: 15px;
+  }
+  .logo {
+    width: 110px;
+  }
+  .logoContainer {
+    margin-bottom: 20px;
+  }
+  .formContainer {
+    padding: 20px 22px;
+  }
+  .formContainer h1 {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 10px;
+    align-items: flex-start;
+  }
+  .signinBox {
+    max-width: 100%;
+    padding-top: 10px;
+  }
+  .logo {
+    width: 100px;
+  }
+  .logoContainer {
+    margin-bottom: 15px;
+  }
+  .formContainer {
+    padding: 18px 16px;
+    border-radius: 6px;
+  }
+  .formContainer h1 {
+    font-size: 22px;
+    margin-bottom: 12px;
+  }
+  .formGroup {
+    margin-bottom: 12px;
+  }
+  .formGroup label {
+    font-size: 12px;
+  }
+  .formGroup input {
+    padding: 7px 8px;
+    font-size: 13px;
+    height: 34px;
+  }
+  .showPasswordBtn {
+    right: 8px;
+    padding: 3px 5px;
+  }
+  .showPasswordBtn svg {
+    width: 18px;
+    height: 18px;
+  }
+  .passwordWrapper input {
+    padding-right: 40px !important;
+  }
+  .submitBtn {
+    padding: 7px 10px;
+    font-size: 13px;
+    height: 34px;
+  }
+  .createAccountBtn {
+    padding: 7px 10px;
+    font-size: 12px;
+    height: 34px;
+  }
+  .agreement {
+    font-size: 11px;
+    margin: 14px 0 8px 0;
+  }
+  .divider {
+    margin: 20px 0 15px 0;
+  }
+  .divider span {
+    font-size: 12px;
+  }
+  .switchText {
+    font-size: 13px;
+    margin-top: 15px;
+  }
+  .switchLink {
+    font-size: 13px;
+  }
+  .error {
+    font-size: 12px;
+    padding: 8px 12px;
+  }
+}
+
+@media (max-width: 380px) {
+  .container {
+    padding: 8px;
+  }
+  .formContainer {
+    padding: 15px 12px;
+  }
+  .formContainer h1 {
+    font-size: 20px;
+  }
+  .logo {
+    width: 85px;
+  }
+  .formGroup input {
+    font-size: 12px;
+    height: 32px;
+    padding: 6px 8px;
+  }
+  .submitBtn {
+    font-size: 12px;
+    height: 32px;
+  }
+  .createAccountBtn {
+    font-size: 12px;
+    height: 32px;
+  }
+  .formGroup label {
+    font-size: 11px;
+  }
+  .agreement {
+    font-size: 10px;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .container {
+    background: #fff;
+  }
+  .formContainer {
+    background: white;
+    border-color: #e7e7e7;
+  }
+  .formContainer h1 {
+    color: #0f1111;
+  }
+  .formGroup label {
+    color: #0f1111;
+  }
+  .formGroup input {
+    background: white;
+    color: #0f1111;
+    border-color: #d5d9d9;
+  }
+  .agreement {
+    color: #565959;
+  }
+  .agreement strong {
+    color: #0f1111;
+  }
+}

@@ -1,0 +1,30 @@
+.currencyContainer {
+  display: inline-flex;
+  align-items: baseline;
+  font-weight: 600;
+  color: #0f1111;
+}
+
+.currencySymbol {
+  font-size: 16px;
+  font-weight: 400;
+  margin-right: 1px;
+  vertical-align: top;
+}
+
+.dollarAmount {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.decimalPoint {
+  font-size: 16px;
+  font-weight: 400;
+  vertical-align: top;
+}
+
+.centsAmount {
+  font-size: 16px;
+  font-weight: 400;
+  vertical-align: top;
+}
