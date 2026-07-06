@@ -1,25 +1,7 @@
-const path = require("path");
-const dotenv = require("dotenv");
 const express = require("express");
 const cors = require("cors");
 
-const result = dotenv.config({ path: path.join(__dirname, ".env") });
-
-if (result.error) {
-  console.error("❌ .env error:", result.error.message);
-  process.exit(1);
-}
-
-console.log("✅ .env loaded from:", path.join(__dirname, ".env"));
-console.log(
-  "🔑 STRIPE_SECRET_KEY:",
-  process.env.STRIPE_SECRET_KEY ? "✅ Set" : "❌ Missing",
-);
-console.log(
-  "🔑 STRIPE_WEBHOOK_SECRET:",
-  process.env.STRIPE_WEBHOOK_SECRET ? "✅ Set" : "❌ Missing",
-);
-
+// ✅ No dotenv needed - Render uses environment variables
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
 const app = express();
@@ -27,6 +9,7 @@ const app = express();
 app.use(cors({ origin: true }));
 app.use(express.json());
 
+// Health check
 app.get("/", (req, res) => {
   res.status(200).json({
     status: "success",
@@ -36,6 +19,7 @@ app.get("/", (req, res) => {
   });
 });
 
+// Create Payment Intent
 app.post("/create-payment-intent", async (req, res) => {
   try {
     const { amount, currency = "usd", metadata = {} } = req.body;
@@ -63,6 +47,7 @@ app.post("/create-payment-intent", async (req, res) => {
   }
 });
 
+// Webhook
 app.post(
   "/webhook",
   express.raw({ type: "application/json" }),
@@ -78,12 +63,7 @@ app.post(
       );
 
       if (event.type === "payment_intent.succeeded") {
-        const paymentIntent = event.data.object;
-        console.log("✅ Payment successful:", paymentIntent.id);
-        console.log("   Amount:", paymentIntent.amount / 100);
-        console.log("   Customer:", paymentIntent.metadata.userEmail || "N/A");
-      } else if (event.type === "payment_intent.payment_failed") {
-        console.log("❌ Payment failed:", event.data.object.id);
+        console.log("✅ Payment successful:", event.data.object.id);
       }
 
       res.status(200).json({ received: true });
@@ -96,10 +76,5 @@ app.post(
 
 const PORT = process.env.PORT || 5001;
 app.listen(PORT, () => {
-  console.log(`🚀 Server running on http://localhost:${PORT}`);
-  console.log(`📊 Health check: GET http://localhost:${PORT}/`);
-  console.log(
-    `💳 Create payment: POST http://localhost:${PORT}/create-payment-intent`,
-  );
-  console.log(`🔗 Webhook: POST http://localhost:${PORT}/webhook`);
+  console.log(`🚀 Server running on port ${PORT}`);
 });
